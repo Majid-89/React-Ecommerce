@@ -9,7 +9,7 @@ function Pagination({ productsPerPage, totalProducts, paginate, activePage }) {
         <ul className='default-pagination lab-ul'>
             <li className='d-block mt-3  d-flex justify-content-center align-content-center' >
                 <span onClick={() => {
-                    if (activePage <= pageNumbers.length) {
+                    if (activePage > 1) {
                         paginate(activePage - 1)
                     }
                 }}>

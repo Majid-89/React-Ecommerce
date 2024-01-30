@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function ProductDisplay({ item, index }) {
-    const { name, id, price, seller, ratingsCount, quantity } = item
+    const { name, id, price, seller, ratingsCount, quantity, img } = item
     const [preQuantity, setPreQuantity] = useState(quantity)
     const [coupon, setCoupon] = useState("")
     const [size, setSize] = useState("Set Size")
@@ -16,6 +16,19 @@ function ProductDisplay({ item, index }) {
             setPreQuantity(preQuantity - 1)
         }
 
+    }
+    const submitHandler = (e) => {
+        e.preventDefault()
+        const product = {
+            img: img,
+            id: id,
+            name: name,
+            quantity: preQuantity,
+            coupon: coupon,
+            size: size,
+            color: color,
+        }
+        console.log(product)
     }
 
     return (
@@ -36,7 +49,7 @@ function ProductDisplay({ item, index }) {
             </div>
 
             <div>
-                <form action="">
+                <form action="" onSubmit={submitHandler}>
                     <div className="select-product size">
                         <select value={size} onChange={(e) => setSize(e.target.value)}>
                             <option >Select size </option>
