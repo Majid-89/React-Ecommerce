@@ -30,22 +30,22 @@ function SingleProduct() {
                                     <div className="row align-items-center">
                                         <div className="col-md-6 col-12">
                                             <div className="product-thumb">
-                                                <Swiper
-                                                    slidesPerView={1}
-                                                    spaceBetween={30}
-                                                    loop={"true"}
-                                                    autoplay={{
-                                                        delay: 2000,
-                                                        disableOnInteraction: false
-                                                    }}
-                                                    modules={[Autoplay]}
-                                                    navigation={{
-                                                        prevEl: ".pro-single-prev",
-                                                        nextvEl: ".pro-single-next"
-                                                    }}
-                                                    className="mySwiper">
+                                                <div className="swiper-container pro-single-top">
+                                                    <Swiper
+                                                        slidesPerView={1}
+                                                        spaceBetween={30}
+                                                        loop={"true"}
+                                                        autoplay={{
+                                                            delay: 2000,
+                                                            disableOnInteraction: false
+                                                        }}
+                                                        modules={[Autoplay]}
+                                                        navigation={{
+                                                            prevEl: ".pro-single-prev",
+                                                            nextvEl: ".pro-single-next"
+                                                        }}
+                                                        className="mySwiper">
 
-                                                    <div className="swiper-container pro-single-top">
                                                         {
                                                             result.map((product, index) => (
                                                                 <SwiperSlide key={index}>
@@ -55,8 +55,8 @@ function SingleProduct() {
                                                                 </SwiperSlide>
                                                             ))
                                                         }
-                                                    </div>
-                                                </Swiper>
+                                                    </Swiper>
+                                                </div>
                                                 <div className="pro-single-next">
                                                     <i className='icofont-rounded-left'></i>
                                                 </div>
@@ -66,11 +66,13 @@ function SingleProduct() {
                                             </div>
                                         </div>
                                         <div className="col-md-6 col-12">
-                                            {
-                                                result.map((item, index) => <ProductDisplay item={item} key={index} />
-                                                )
-                                            }
+                                            <div className="post-content">
+                                                {
+                                                    result.map((item, index) => <ProductDisplay item={item} key={index} />
+                                                    )
+                                                }
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -87,4 +89,4 @@ function SingleProduct() {
     )
 }
 
-export default SingleProduct
+export default SingleProduct    
