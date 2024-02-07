@@ -14,10 +14,6 @@ import Review from './Review';
 function SingleProduct() {
     const [product, setProduct] = useState(Products)
     const { id } = useParams()
-    // const [product, setproduct] = useState(second)
-    // useEffect(() => {
-    //     fetch("/src/products.json").then(res => res.json()).then(data => setProduct(data))
-    // }, [])
     const result = Products.filter((product) => product.id === id)
     return (
         <div>
