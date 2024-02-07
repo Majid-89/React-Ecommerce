@@ -8,6 +8,7 @@ import { Autoplay } from 'swiper/modules';
 import "swiper/css"
 import ProductDisplay from './ProductDisplay';
 import Products from '../products.json'
+import Review from './Review';
 
 
 function SingleProduct() {
@@ -77,7 +78,7 @@ function SingleProduct() {
                                     </div>
                                 </div>
                                 <div className="review">
-                                    review
+                                    <Review />
                                 </div>
                             </article>
                         </div>

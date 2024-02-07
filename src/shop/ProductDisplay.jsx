@@ -27,8 +27,24 @@ function ProductDisplay({ item, index }) {
             coupon: coupon,
             size: size,
             color: color,
+            price: price
         }
-        console.log(product)
+
+        const existingCart = JSON.parse(localStorage.getItem('cart')) || []
+        const existingProductIndex = existingCart.findIndex((item) => item.id === id)
+
+        if (existingProductIndex !== -1) {
+            existingCart[existingProductIndex].quantity += preQuantity
+        } else {
+            existingCart.push(product)
+        }
+        localStorage.setItem('cart', JSON.stringify(existingCart))
+
+        setPreQuantity(1)
+        setSize("Select Size")
+        setColor("Select Color")
+        setCoupon("")
+
     }
 
     return (
